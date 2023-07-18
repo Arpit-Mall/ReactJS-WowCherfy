@@ -1,38 +1,135 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body {
+  background-color: #d2d2d2;
+  display: grid;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: "open sans";
+  margin-top: 10px;
+}
+
+.product-list {
+  display: grid;
+}
+
+.product-list table {
+  border-collapse: collapse;
+  border: 1px solid #626a80;
+}
+
+.product-list thead,
+.product-list tfoot {
+  color: #ffffff;
+}
+
+.product-list tbody,
+.product-list p {
+  color: #ffffff;
+}
+
+.product-list th,
+.product-list td {
+  border: 1px solid #626a80;
+  padding: 5px;
+}
+
+.product-list th {
+  background-color: #eb008c;
+}
+
+.product-list th:first-child {
+  width: 300px;
+}
+
+.product-list th:last-child {
+  width: 100px;
+}
+
+.product-list tr:nth-child(2n) {
+  background-color: #21242c;
+}
+
+.product-list tr:nth-child(2n + 1) {
+  background-color: #2a2f3d;
+}
+
+.product-list td:last-child {
+  text-align: right;
+}
+
+.product-list input {
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  padding: 3px 8px;
+  background-color: #eb008c;
+  color: #ffffff;
+  border: 1px solid #eb008c;
+  border-radius: 4px;
+  line-height: 24px;
+  outline: none;
+}
+body {
+  background-color: rgb(180, 179, 179);
+  display: grid;
+  justify-content: center;
+  font-family: "open sans";
+}
+
+.product-list {
+  display: grid;
+}
+
+.product-list table {
+  border-collapse: collapse;
+  border: 1px solid #626a80;
+}
+
+.product-list thead,
+.product-list tfoot {
+  color: #ffffff;
+}
+
+.product-list tbody,
+.product-list p {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.product-list th,
+.product-list td {
+  border: 1px solid #626a80;
+  padding: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product-list th {
+  background-color: rgb(245, 180, 180);
+}
+
+.product-list th:first-child {
+  width: 300px;
+}
+
+.product-list th:last-child {
+  width: 100px;
+}
+
+.product-list tr:nth-child(2n) {
+  background-color: #21242c;
+}
+
+.product-list tr:nth-child(2n + 1) {
+  background-color: #2a2f3d;
+}
+
+.product-list td:last-child {
+  text-align: right;
+}
+
+.product-list input {
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  padding: 3px 8px;
+  background-color: rgb(252, 251, 251);
+  color: black;
+  border: 1px solid rgb(245, 180, 180);
+  border-radius: 4px;
+  line-height: 24px;
+  outline: none;
 }
