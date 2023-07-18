@@ -21,11 +21,12 @@ class App extends Component {
 
   state = {
     stores: [],
-    finalRevenue: 0,
     filtered: []
   }
 
   componentDidMount() {
+
+    //Fetch the data from the Branch JSON file
     Promise.all([
       fetch('http://localhost:3000/api/branch1.json'),
       fetch('http://localhost:3000/api/branch2.json'),
@@ -49,6 +50,8 @@ class App extends Component {
       // console.log(all);
       let unsorted = [];
       let finalProducts = [];
+
+      //Push all the branch data into single array
       for (let i = 0; i < all.length; i++) {
         for (let j = 0; j < all[i].length; j++) {
           unsorted.push(
@@ -59,15 +62,45 @@ class App extends Component {
         }
       }
       // console.log(unsorted);
+
+      //Sort all the Products with respect to Name
       sortOn(unsorted, "name");
-      // console.log(unsorted);
+
+      //Print all the products
+      // for (let i = 0; i < unsorted.length; i++) {
+      //   console.log(unsorted[i].name);
+      // }
 
       var holder = {};
-      for (let i = 0; i < unsorted.length; i++) {
-        holder[unsorted[i].name] = unsorted[i].revenue;
+
+      // Consider all the products in all the branches means those products which comes with same name in all the Branches
+      var sum = 0;
+      for (let i = 0; i < unsorted.length - 1; i++) {
+        if (unsorted[i].name === unsorted[i + 1].name) {
+          sum = unsorted[i].revenue + unsorted[i + 1].revenue
+        }
+        else {
+          holder[unsorted[i].name] = unsorted[i].revenue;
+        }
+        holder[unsorted[i].name] = sum;
+
       }
 
+      /*
+      Consider only that products which comes at the end in the branch
+
+      for (let i = 0; i < unsorted.length; i++) 
+        {
+          holder[unsorted[i].name] = unsorted[i].revenue;       
+        }
+      */
+
       // console.log(holder);
+
+      // console.log(Object.keys(holder));    // To count the length of the JSON
+
+
+      //Push the data into array from the object
       for (var prop in holder) {
         finalProducts.push({ name: prop, revenue: holder[prop] });
       }
@@ -96,6 +129,7 @@ class App extends Component {
 
   displayTotalRev() {
 
+    //Display total at the End
     let finalStore = this.state.stores;
     let filteredStore = this.state.filtered;
     let sum;
@@ -123,6 +157,8 @@ class App extends Component {
   }
 
   renderTableData() {
+
+    //Render all the Data into Table
 
     let filteredStore = this.state.filtered;
     // console.log(filteredStore, "1");
